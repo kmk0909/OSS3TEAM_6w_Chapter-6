@@ -218,8 +218,6 @@ fatal: a branch named 'footer' already exists     # 결과로 'footer'라는 이
 
 # 6.9 원격 브랜치
 
-🤝 깃은 다수의 개발자와 협업으로 코드를 유지할 수 있음
-
 ## 6.9.1 리모트 브랜치
 
 💬 **리모트 브랜치**:원격 저장소에 생성한 브랜치 <br>
