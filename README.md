@@ -75,7 +75,7 @@ YuBeenSo@DESKTOP-SKBKL14 MINGW64 /c/coding/coding/2022 OSS/git/gitstudy06
 $ git init     # init(초기화) 명령어를 통해 gitstudy06 저장소를 초기화시킨다.
 Initialized empty Git repository in C:/coding/coding/2022 OSS/git/gitstudy06/.git/
 
-
+ 
 YuBeenSo@DESKTOP-SKBKL14 MINGW64 /c/coding/coding/2022 OSS/git/gitstudy06 (main)     
 # 초기화가 완료되면 위와 같이 현재 'main' 브랜치라는 것을 알려준다.     
 
