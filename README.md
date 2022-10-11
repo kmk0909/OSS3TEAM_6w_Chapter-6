@@ -216,6 +216,108 @@ fatal: a branch named 'footer' already exists     # 결과로 'footer'라는 이
 
 ![image](https://user-images.githubusercontent.com/99963066/194837680-de540f96-d3e9-4f6e-a7bb-36d3339c6fdd.png)
 
+
+6.7 HEAD 포인터 : 깃의 대표적인 객체 포인터
+●6.7.1 마지막 커밋
+HEAD 작업 중인 브랜치의 마지막 커밋 ID를 가리키는 참조 포인터
+깃은 HEAD 포인터를 부모 커밋으로 대체, 빠르게 스냅샷 생성
+커밋 로그 이용하여 HEAD 확인
+infoh@DESKTOP MINGW64 /e/gitstudy06 (master)
+$ git checkout footer #브랜치 이동
+Switched to branch ‘footer’
+
+infoh@DESKTOP MINGW64 /e/gitstudy06 (footer)
+$ git log  --graph --all #로그 확인  
+* commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (master)
+¦ Author: hojin <infohojin@gmail.com>
+¦ Date:   Sat May 11 18:45:35 2019 +0900
+¦      master working...
+¦
+* commit d84766c7f87b1d9d234050949c48681ba4e35da8 (HEAD -> footer, feature) #HEAD 위치
+Author: hojin <infohojin@gmail.com>
+Date:   Sat May 11 17:10:02 2019 +0900
+●6.7.2 브랜치 HEAD
+브랜치를 이동하면 HEAD 포인트도 이동
+infoh@DESKTOP MINGW64 /e/gitstudy06 (footer)
+$ git checkout master #브랜치 이동
+Switched to branch ‘master’
+
+infoh@DESKTOP MINGW64 /e/gitstudy06 (master)
+$ git log  --graph --all #로그 출력 
+* commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (HEAD -> master) #HEAD 위치
+* commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (master)
+¦ Author: hojin <infohojin@gmail.com>
+¦ Date:   Sat May 11 18:45:35 2019 +0900
+¦      master working...
+¦
+* commit d84766c7f87b1d9d234050949c48681ba4e35da8 (footer, feature)
+Author: hojin <infohojin@gmail.com>
+Date:   Sat May 11 17:10:02 2019 +0900
+     first
+●6.7.3 소스트리 HEAD
+각 브랜치의 마지막 위치를 브랜치 아이콘으로 표시
+●6.7.4 상대적 위치
+HEAD 포인터는 커밋 생성 및 브랜치 관리에 유용, 명령어 입력의 기준점으로 사용
+마지막 커밋 위치인 HEAD를 기준으로 상대적 커밋 위치 지정
+상대적 커밋 위치를 지정할 때는 캐럿(^)과 물결(~) 기호를 사용
+# 최근에는 해시키를 사용하는 것이 편리
+●6.7.5 AHEAD, BHEAD
+원격 저장소와 연동하여 깃을 관리하면 앞에 A 또는 B가 붙은 로컬 저장소와 원격 저장소의 브랜치 HEAD가 있다. AHEAD와 BHEAD는 서로 다른 저장소 간 HEAD 포인트의 위치 차이를 의미
+AHEAD는 서버로 전송되지 않은 로컬 커밋 
+로컬 저장소의 HEAD 포인트를 기준으로 로컬 브랜치에 있는 커밋이 서버의 커밋 개수보다 많은 경우
+BHEAD는 로컬 저장소로 내려받지 않은 커밋이 있는 것 
+원격 저장소의 커밋이 자신의 로컬 저장소보다 더 최신 상태
+
+6.8 생성과 이동: 브랜치 생성은 branch 명령어, 브랜치 이동은 checkout 명령어 사용
+●6.8.1 자동 이동 옵션 
+체크아웃할 때 –b 옵션 사용하면 브랜치 생성과 이동 한 번에 가능
+infoh@DESKTOP MINGW64 /e/gitstudy06 (master)
+$ git checkout –b hotfix #체크아웃
+Switched to a new branch ‘hotfix’ #브랜치 생성
+infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix) #체크아웃
+
+infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix)
+$ git branch –v #브랜치 목록
+  feature d84766c first
+  footer  d84766c first 
+* hotfix dcdb1c1 master working... #현재의 브랜치
+master  dcdb1c1 master working... #브랜치 생성만 했기 때문에 같은 커밋 ID를 가리킴
+●6.8.2 커밋 이동
+브랜치 이름은 커밋 해시키와 동일 -> 브랜치 이름 대신 커밋 해시키 사용하여 체크아웃 가능 이때 해시키를 전체 사용하지 않고 앞의 7자리 정도만 사용해도 무리X 유일한 해시 값이 가지는 특징
+infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix)
+$ git brach –v #브랜치 목록
+  feature d84766c first
+  footer  d84766c first
+* hotfix  dcdb1c1 master working...
+  master dcdb1c1 master working...
+
+infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix)
+$git checkout dcdb1c1 #커밋으로 브랜치 이동
+Note: checking out ‘dcdb1c1’.
+You are in ‘detached HEAD’ state.You can look aroud, make experimental chages and commit them, and you can discard any  commits you make in this state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may do so (now or later) by using –b with the checkout command again. Example:
+
+ git checkout – b <new-branch-name>
+HEAD is now at dcdb1c1 master working...
+infoh@DESKTOP MINGW64 /e/gitstudy06 ((dcdb1c1...))
+
+●6.8.3 HEAD를 활용한 이동
+HEAD 포인터를 사용하면 좀 더 간편하게 체크 아웃 할 수 있다.
+예) $ git checkout HEAD~1 #현재의 한 단계 전
+뒤에 숫자만 바꾸면 여러 단계 이전으로 이동 가능
+●6.8.4 돌아오기
+과거의 커밋으로 체크아웃했다면 대시(-)를 사용하여 다시 현재로 돌아올 수 있다.
+
+infoh@DESKTOP MINGW64 /e/gitstudy06 ((dcdb1c1...))
+$ git checkout - #이전 브랜치로 이동
+Switched to branch ‘hotfix’
+                                                
+infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix) #브랜치 복귀
+브랜치 이름을 입력하면 브랜치의 마지막 커밋 위치인HEAD 포인터로 복귀
+$ git checkout master #특정 브랜치로 복귀
+
+  
 # 6.9 원격 브랜치
 
 ## 6.9.1 리모트 브랜치
