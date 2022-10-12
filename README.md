@@ -326,9 +326,13 @@ Switched to branch ‘footer’
 infoh@DESKTOP MINGW64 /e/gitstudy06 (footer)
 $ git log  --graph --all #로그 확인  
 * commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (master)
+
 ¦ Author: hojin <infohojin@gmail.com>
+
 ¦ Date:   Sat May 11 18:45:35 2019 +0900
+
 ¦      master working...
+
 ¦
 * commit d84766c7f87b1d9d234050949c48681ba4e35da8 (HEAD -> footer, feature) #HEAD 위치
 Author: hojin <infohojin@gmail.com>
@@ -345,8 +349,11 @@ $ git log  --graph --all #로그 출력
 * commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (HEAD -> master) #HEAD 위치
 * commit dcdb1c1fa4ef78bedd8dc13bc267e99391cc9782 (master)
 ¦ Author: hojin <infohojin@gmail.com>
+
 ¦ Date:   Sat May 11 18:45:35 2019 +0900
+
 ¦      master working...
+
 ¦
 * commit d84766c7f87b1d9d234050949c48681ba4e35da8 (footer, feature)
 Author: hojin <infohojin@gmail.com>
