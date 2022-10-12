@@ -318,6 +318,7 @@ footer는 한 줄 짜리 정보를 워킹 디렉터리에 가지고 있는 상�
 HEAD 작업 중인 브랜치의 마지막 커밋 ID를 가리키는 참조 포인터
 깃은 HEAD 포인터를 부모 커밋으로 대체, 빠르게 스냅샷 생성
 커밋 로그 이용하여 HEAD 확인
+
 infoh@DESKTOP MINGW64 /e/gitstudy06 (master)
 $ git checkout footer #브랜치 이동
 Switched to branch ‘footer’
@@ -334,6 +335,7 @@ Author: hojin <infohojin@gmail.com>
 Date:   Sat May 11 17:10:02 2019 +0900
 ## ●6.7.2 브랜치 HEAD
 브랜치를 이동하면 HEAD 포인트도 이동
+
 infoh@DESKTOP MINGW64 /e/gitstudy06 (footer)
 $ git checkout master #브랜치 이동
 Switched to branch ‘master’
@@ -367,6 +369,7 @@ BHEAD는 로컬 저장소로 내려받지 않은 커밋이 있는 것
 # 6.8 생성과 이동: 브랜치 생성은 branch 명령어, 브랜치 이동은 checkout 명령어 사용
 ## ●6.8.1 자동 이동 옵션 
 체크아웃할 때 –b 옵션 사용하면 브랜치 생성과 이동 한 번에 가능
+
 infoh@DESKTOP MINGW64 /e/gitstudy06 (master)
 $ git checkout –b hotfix #체크아웃
 Switched to a new branch ‘hotfix’ #브랜치 생성
@@ -380,6 +383,7 @@ $ git branch –v #브랜치 목록
 master  dcdb1c1 master working... #브랜치 생성만 했기 때문에 같은 커밋 ID를 가리킴
 ## ●6.8.2 커밋 이동
 브랜치 이름은 커밋 해시키와 동일 -> 브랜치 이름 대신 커밋 해시키 사용하여 체크아웃 가능 이때 해시키를 전체 사용하지 않고 앞의 7자리 정도만 사용해도 무리X 유일한 해시 값이 가지는 특징
+
 infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix)
 $ git brach –v #브랜치 목록
   feature d84766c first
@@ -400,6 +404,7 @@ infoh@DESKTOP MINGW64 /e/gitstudy06 ((dcdb1c1...))
 
 ## ●6.8.3 HEAD를 활용한 이동
 HEAD 포인터를 사용하면 좀 더 간편하게 체크 아웃 할 수 있다.
+
 예) $ git checkout HEAD~1 #현재의 한 단계 전
 뒤에 숫자만 바꾸면 여러 단계 이전으로 이동 가능
 ## ●6.8.4 돌아오기
