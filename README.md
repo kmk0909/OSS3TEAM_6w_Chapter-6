@@ -373,7 +373,7 @@ Switched to a new branch ‘hotfix’ #브랜치 생성
 infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix) #체크아웃
 
 infoh@DESKTOP MINGW64 /e/gitstudy06 (hotfix)
-$ git branch –v ##브랜치 목록
+$ git branch –v #브랜치 목록
   feature d84766c first
   footer  d84766c first 
 * hotfix dcdb1c1 master working... #현재의 브랜치
